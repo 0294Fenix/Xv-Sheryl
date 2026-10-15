@@ -3,749 +3,1065 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#260b45">
-
-<title>XV Años | Sheryl Gabriela</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#713b91">
+<title>XV años de Sheryl Gabriela</title>
 
 <style>
 :root {
-    --morado: #260b45;
-    --morado2: #42146b;
-    --lila: #d9b8f3;
-    --dorado: #e8cb85;
-    --crema: #fff9f0;
+  --morado: #713b91;
+  --lila: #ead8ff;
+  --dorado: #d7ad50;
+  --crema: #fffaf1;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: var(--crema);
-    background:
-        radial-gradient(ellipse at top, #512177 0%, #260b45 50%, #12051f 100%);
-    text-align: center;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+  color: #4e2a62;
+  background: linear-gradient(145deg, #f8eaff, #fff8f2, #ead8ff);
+  overflow-x: hidden;
 }
 
-button, a {
-    -webkit-tap-highlight-color: transparent;
+button { font: inherit; }
+
+#polvo, #mariposas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-button {
-    font-family: inherit;
+#polvo { z-index: 10; }
+#mariposas { z-index: 11; }
+
+.pantalla-inicial {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 16px;
+  position: relative;
+  z-index: 2;
 }
 
-.hidden {
-    display: none !important;
+.etiqueta {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #8e67a8;
 }
 
-/* FONDO */
-
-.stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
+.sobre {
+  position: relative;
+  width: min(300px, 82vw);
+  height: 195px;
+  margin: 35px auto 30px;
+  cursor: pointer;
+  perspective: 800px;
+  filter: drop-shadow(0 15px 20px #7b4b8530);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.star {
-    position: absolute;
-    color: var(--dorado);
-    animation: twinkle 3s infinite alternate;
-    opacity: .65;
+.sobre-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #b68bda, #8051a7);
+  border-radius: 5px 5px 12px 12px;
+  overflow: hidden;
 }
 
-@keyframes twinkle {
-    from { opacity: .2; transform: scale(.8); }
-    to { opacity: 1; transform: scale(1.2); }
+.sobre-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #d9b9f2;
+  clip-path: polygon(0 100%, 50% 43%, 100% 100%);
+  z-index: 3;
 }
 
-/* SOBRE */
-
-#opening {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    position: relative;
-    z-index: 1;
+.sobre-base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #e8d0fa, #bd91e1);
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  transform-origin: top;
+  transition: transform 1s ease, opacity .6s ease;
+  z-index: 4;
 }
 
-.intro-small {
-    color: var(--dorado);
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+.tarjeta-sobre {
+  position: absolute;
+  width: 82%;
+  height: 78%;
+  left: 9%;
+  top: 7%;
+  background: var(--crema);
+  border: 2px solid #edce81;
+  border-radius: 7px;
+  padding: 18px 5px;
+  transition: transform 1s ease;
+  z-index: 2;
 }
 
-.intro-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(48px, 12vw, 78px);
-    color: var(--lila);
-    margin: 0 0 25px;
-    text-shadow: 0 0 20px #b986e8;
+.mini-xv {
+  font-size: 35px;
+  color: #9a65b7;
 }
 
-.envelope-button {
-    border: 0;
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    width: min(330px, 90vw);
-    perspective: 1000px;
+.sello {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff2bd, #d5a63e 70%);
+  color: #70417d;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  box-shadow: 0 3px 12px #4b235650;
+  transition: opacity .4s;
 }
 
-.envelope {
-    position: relative;
-    height: 210px;
-    background: linear-gradient(135deg, #a987d1, #633b8d);
-    border: 2px solid var(--dorado);
-    border-radius: 5px;
-    box-shadow: 0 15px 45px #08000f99;
+.sobre.abierto .sobre-base::after {
+  transform: rotateX(180deg);
+  opacity: .25;
 }
 
-.envelope::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, transparent 49%, #b89ad7 50%);
-    clip-path: polygon(0 0, 50% 58%, 100% 0);
-    z-index: 3;
+.sobre.abierto .tarjeta-sobre {
+  transform: translateY(-105px);
 }
 
-.envelope::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(35deg, #8c68b7, #c3a3e4);
-    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
-    z-index: 4;
+.sobre.abierto .sello { opacity: 0; }
+
+.instruccion {
+  color: #805b92;
+  font-size: 14px;
+  animation: respirar 2s infinite;
 }
 
-.envelope-flap {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #d8c0ee, #8c64b8);
-    clip-path: polygon(0 0, 100% 0, 50% 58%);
-    transform-origin: top;
-    transition: transform 1s ease;
-    z-index: 5;
+@keyframes respirar {
+  50% { opacity: .55; }
 }
 
-.seal {
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    left: 50%;
-    top: 54%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, #f9e8b5, #bd9140);
-    border: 3px solid #f8e6b0;
-    box-shadow: 0 0 20px #e8cb8588;
-    z-index: 6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #552e6b;
-    font-family: 'Great Vibes', cursive;
-    font-size: 34px;
+.contenido {
+  display: none;
+  position: relative;
+  z-index: 2;
+  padding: 45px 17px 70px;
+  max-width: 780px;
+  margin: auto;
+  animation: aparecer 1.5s ease both;
 }
 
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
+.contenido.visible { display: block; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.open-text {
-    color: var(--dorado);
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-top: 25px;
-    animation: pulse 1.5s infinite;
+.decoracion {
+  color: #bb8b2d;
+  letter-spacing: 7px;
+  font-size: 19px;
+  margin: 16px 0;
 }
 
-@keyframes pulse {
-    50% { opacity: .5; }
+.titulo-pequeno {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #9870a7;
 }
 
-/* INVITACIÓN */
-
-#invitation {
-    position: relative;
-    z-index: 1;
-    animation: appear 1.5s ease;
+h1 {
+  font-size: clamp(37px, 9vw, 65px);
+  line-height: 1.08;
+  font-weight: normal;
+  margin: 18px 0;
+  color: #774291;
+  text-shadow: 1px 2px 0 white;
 }
 
-@keyframes appear {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
+.subtitulo {
+  font-size: clamp(19px, 5vw, 27px);
+  font-style: italic;
+  color: #b18a40;
 }
 
-.hero {
-    min-height: 100vh;
-    padding: 65px 22px 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid #e8cb8555;
+.marco {
+  margin: 35px auto;
+  max-width: 570px;
+  padding: 8px;
+  background: linear-gradient(135deg, #f7dc8b, #fff5d4, #c69c42);
+  border-radius: 220px 220px 18px 18px;
+  box-shadow: 0 12px 35px #8755a329;
 }
 
-.crown {
-    color: var(--dorado);
-    font-size: 38px;
-    margin-bottom: 10px;
+.marco-interior {
+  border: 2px solid #fff8e9;
+  border-radius: 215px 215px 12px 12px;
+  padding: 25px 18px;
+  background: linear-gradient(#fffaff, #f8eaff);
 }
 
-.eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: var(--dorado);
-    font-size: 11px;
+.mensaje {
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 12px auto;
+  max-width: 550px;
 }
 
-.hero h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(60px, 14vw, 105px);
-    font-weight: normal;
-    line-height: 1;
-    color: var(--lila);
-    margin: 20px 0;
-    text-shadow: 0 0 25px #b986e855;
+.datos {
+  border-top: 1px solid #e4c990;
+  border-bottom: 1px solid #e4c990;
+  margin: 30px auto;
+  padding: 25px 10px;
+  max-width: 550px;
 }
 
-.hero h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(26px, 7vw, 40px);
-    color: var(--dorado);
-    margin: 0 0 22px;
+.dato { margin: 22px 0; }
+
+.dato strong {
+  display: block;
+  color: #9a6b31;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 8px;
 }
 
-.hero p {
-    font-size: 14px;
-    line-height: 1.9;
-    max-width: 500px;
+.dato span {
+  font-size: 19px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-.ornament {
-    color: var(--dorado);
-    font-size: 26px;
-    margin: 20px 0;
+.boton-mapa {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 9px 16px;
+  color: #74458b;
+  background: #fffaf1;
+  border: 1px solid #d5b46a;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
 }
 
-/* SECCIONES */
-
-.section {
-    padding: 65px 22px;
-    max-width: 700px;
-    margin: auto;
+.cuenta-regresiva {
+  margin: 35px auto;
+  max-width: 570px;
+  padding: 25px 12px;
+  border: 1px solid #d5b46a;
+  border-radius: 20px;
+  background: #fffaf1d9;
+  box-shadow: 0 8px 25px #77429114;
 }
 
-.section h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px;
-    color: var(--lila);
-    font-weight: normal;
-    margin: 0 0 20px;
+.cuenta-regresiva h2 {
+  font-weight: normal;
+  color: #82509b;
+  font-size: 25px;
+  line-height: 1.4;
 }
 
-.section p {
-    font-size: 14px;
-    line-height: 1.9;
+.reloj {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 460px;
+  margin: 20px auto 0;
 }
 
-.gold {
-    color: var(--dorado);
+.unidad {
+  padding: 14px 3px;
+  background: linear-gradient(145deg, #ead8ff, #fff5e3);
+  border-radius: 12px;
+  border: 1px solid #ead4a0;
 }
 
-.parents {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px !important;
-    line-height: 1.5 !important;
-    color: var(--dorado);
+.numero {
+  display: block;
+  color: #774291;
+  font-size: clamp(24px, 6vw, 36px);
+  font-weight: bold;
 }
 
-.date-card {
-    border: 1px solid var(--dorado);
-    background: linear-gradient(145deg, #51217766, #1b082b99);
-    padding: 30px 20px;
-    margin: 30px auto;
-    max-width: 420px;
-    box-shadow: 0 0 35px #08000f44;
+.etiqueta-reloj {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #906f9e;
+  margin-top: 5px;
 }
 
-.date-card .day {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 70px;
-    color: var(--dorado);
-    line-height: 1;
+.fotos-titulo {
+  font-size: 32px;
+  line-height: 1.3;
+  color: #82509b;
+  font-weight: normal;
+  margin: 45px 0 8px;
 }
 
-.date-card .month {
-    font-size: 17px;
-    letter-spacing: 4px;
-    color: var(--lila);
-    margin-top: 12px;
+.carrusel {
+  max-width: 520px;
+  margin: 22px auto;
 }
 
-.date-card .time {
-    margin-top: 20px;
-    font-size: 14px;
+.foto-marco {
+  background: linear-gradient(135deg, #f5d887, #fff0be, #c99a43);
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0 12px 28px #784a8b25;
 }
 
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+.foto {
+  display: none;
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  background: #f9edff;
+  border-radius: 9px;
 }
 
-.count-box {
-    min-width: 72px;
-    padding: 15px 10px;
-    background: #ffffff0c;
-    border: 1px solid #e8cb8577;
+.foto.activa {
+  display: block;
+  animation: fotoAparece .8s ease;
 }
 
-.count-box strong {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 31px;
-    color: var(--dorado);
+@keyframes fotoAparece {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.count-box span {
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.foto-fallback {
+  display: none;
+  padding: 50px 15px;
+  background: #f5e6ff;
+  border-radius: 10px;
+  line-height: 1.8;
 }
 
-.location-card {
-    margin: 22px auto;
-    padding: 24px 18px;
-    border: 1px solid #d9b8f366;
-    background: #ffffff08;
-    max-width: 480px;
+.controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 17px;
 }
 
-.location-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    color: var(--dorado);
-    margin: 0 0 10px;
+.boton-carrusel {
+  border: 1px solid #d5b46a;
+  color: #74458b;
+  background: #fff9efed;
+  border-radius: 30px;
+  padding: 10px 17px;
+  cursor: pointer;
 }
 
-.btn {
-    display: inline-block;
-    border: 1px solid var(--dorado);
-    color: var(--dorado);
-    padding: 13px 20px;
-    text-decoration: none;
-    margin-top: 12px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    transition: .3s;
-    background: transparent;
-    cursor: pointer;
+.puntos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
 }
 
-.btn:hover {
-    background: var(--dorado);
-    color: var(--morado);
+.punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d5b8e5;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #e8cb85, #c69b4a);
-    color: #2c1240;
-    font-weight: 600;
+.punto.activo {
+  background: #9862b2;
+  transform: scale(1.2);
 }
 
-.rsvp-box {
-    border: 1px solid var(--dorado);
-    padding: 35px 22px;
-    background: linear-gradient(145deg, #51217755, #ffffff05);
+.confirmacion {
+  margin: 45px auto 25px;
+  padding: 30px 20px;
+  max-width: 570px;
+  background: linear-gradient(145deg, #fffaf3, #f2e2ff);
+  border: 1px solid #dfc178;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px #77429117;
 }
 
-.rsvp-box .btn {
-    font-size: 12px;
+.confirmacion h2 {
+  font-size: 29px;
+  font-weight: normal;
+  color: #82509b;
+  line-height: 1.4;
 }
 
-.footer {
-    padding: 40px 20px;
-    border-top: 1px solid #e8cb8544;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--lila);
-    font-size: 22px;
+.boton-whatsapp {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 23px;
+  border-radius: 35px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 5px 14px #25d36640;
 }
 
-.footer small {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 10px;
-    color: #d9b8f399;
-    margin-top: 20px;
-    letter-spacing: 2px;
+.padres {
+  margin: 40px 0;
+  font-size: 18px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
-/* BOTÓN DE MÚSICA */
-
-.music-button {
-    position: fixed;
-    right: 15px;
-    bottom: 15px;
-    z-index: 20;
-    width: 48px;
-    height: 48px;
-    border: 1px solid var(--dorado);
-    border-radius: 50%;
-    background: #351050;
-    color: var(--dorado);
-    font-size: 21px;
-    cursor: pointer;
-    box-shadow: 0 0 20px #0006;
+.firma {
+  font-style: italic;
+  color: #a67d35;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-top: 35px;
 }
 
-/* DETALLES */
-
-.floating-heart {
-    position: absolute;
-    color: #d9b8f3;
-    opacity: .35;
-    animation: float 6s infinite ease-in-out;
+.boton-musica {
+  position: fixed;
+  z-index: 20;
+  right: 12px;
+  bottom: 12px;
+  display: none;
+  box-shadow: 0 4px 15px #0002;
+  border: 1px solid #d5b46a;
+  color: #74458b;
+  background: #fff9efed;
+  border-radius: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-18px); }
+.boton-musica.visible { display: block; }
+
+.pie {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #a080ad;
+  margin-top: 45px;
 }
 
 @media (max-width: 400px) {
-    .section {
-        padding: 50px 17px;
-    }
+  .mensaje { font-size: 16px; }
+  .dato span { font-size: 17px; }
+  .marco-interior { padding: 22px 13px; }
+  .boton-carrusel { padding: 9px 13px; }
+  .reloj { gap: 5px; }
+}
 
-    .count-box {
-        min-width: 65px;
-    }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="stars" id="stars"></div>
+<canvas id="polvo"></canvas>
+<canvas id="mariposas"></canvas>
 
-<!-- SOBRE DE BIENVENIDA -->
+<audio id="sonidoSobre" preload="auto">
+  <source src="sonido-sobre.mp3" type="audio/mpeg">
+</audio>
 
-<section id="opening">
-    <div class="intro-small">Una celebración muy especial</div>
+<audio id="musica" loop preload="auto">
+  <source src="glimple-of-us.mp3" type="audio/mpeg">
+</audio>
 
-    <h1 class="intro-name">Sheryl Gabriela</h1>
+<section class="pantalla-inicial" id="inicio">
+  <div class="etiqueta">Una noche mágica está por comenzar</div>
 
-    <button class="envelope-button" id="openEnvelope"
-        aria-label="Abrir invitación de XV años">
-        <div class="envelope" id="envelope">
-            <div class="envelope-flap"></div>
-            <div class="seal">S</div>
-        </div>
-    </button>
+  <div class="sobre" id="sobre" role="button" tabindex="0"
+       aria-label="Abrir invitación">
+    <div class="sobre-base"></div>
 
-    <div class="open-text">TOCA EL SOBRE PARA ABRIR</div>
-    <p style="font-size:11px;color:#d9b8f399;margin-top:25px;">
-        Tenemos una invitación especial para ti
-    </p>
+    <div class="tarjeta-sobre">
+      <div class="mini-xv">XV</div>
+      <div style="font-size:12px;color:#a47b39;letter-spacing:2px">
+        MI INVITACIÓN
+      </div>
+    </div>
+
+    <div class="sello">✦</div>
+  </div>
+
+  <div class="instruccion">
+    Toca el sobre para descubrir la magia ✨
+  </div>
 </section>
 
-<!-- INVITACIÓN -->
+<main class="contenido" id="contenido">
 
-<main id="invitation" class="hidden">
+  <div class="decoracion">✧ ❦ ✧</div>
 
-    <section class="hero">
-        <div class="crown">♕</div>
-        <div class="eyebrow">Mis XV años</div>
+  <div class="titulo-pequeno">
+    Con la bendición de Dios y el amor de mi familia
+  </div>
 
-        <h1>Sheryl Gabriela</h1>
+  <h1>Sheryl Gabriela</h1>
+  <div class="subtitulo">Mis XV años</div>
+  <div class="decoracion">🦋 ✨ 🦋</div>
 
-        <h2>¡Una noche para recordar!</h2>
+  <div class="marco">
+    <div class="marco-interior">
+      <p class="mensaje">
+        Hay momentos en la vida que se atesoran para siempre,
+        y hoy comienza uno de los capítulos más hermosos de la mía.
+      </p>
 
-        <div class="ornament">✦ ───── ✦</div>
+      <p class="mensaje">
+        Me encantaría compartir contigo una noche llena de amor,
+        alegría, sueños y magia.
+      </p>
+    </div>
+  </div>
 
-        <p>
-            Hay momentos que se vuelven inolvidables cuando se comparten
-            con las personas que más queremos.
-        </p>
+  <!-- CONTADOR REGRESIVO -->
+  <section class="cuenta-regresiva">
+    <h2>La magia comienza en...</h2>
 
-        <p>
-            Con mucha alegría, te invitamos a celebrar conmigo
-            esta etapa tan especial de mi vida.
-        </p>
+    <div class="reloj">
+      <div class="unidad">
+        <span class="numero" id="dias">000</span>
+        <span class="etiqueta-reloj">Días</span>
+      </div>
 
-        <div class="ornament">❦</div>
-        <p class="gold">11 · JUNIO · 2029</p>
-    </section>
+      <div class="unidad">
+        <span class="numero" id="horas">00</span>
+        <span class="etiqueta-reloj">Horas</span>
+      </div>
 
-    <section class="section">
-        <h2>Con la bendición de Dios</h2>
+      <div class="unidad">
+        <span class="numero" id="minutos">00</span>
+        <span class="etiqueta-reloj">Minutos</span>
+      </div>
 
-        <p>
-            Y el amor de quienes me han acompañado desde el primer día,
-            tengo el honor de invitarte a mis XV años.
-        </p>
+      <div class="unidad">
+        <span class="numero" id="segundos">00</span>
+        <span class="etiqueta-reloj">Segundos</span>
+      </div>
+    </div>
+  </section>
 
-        <div class="ornament">✧</div>
+  <!-- INFORMACIÓN DEL EVENTO -->
+  <div class="datos">
 
-        <p>Mis padres</p>
+    <div class="dato">
+      <strong>La fecha</strong>
+      <span>11 de junio de 2029</span>
+    </div>
 
-        <p class="parents">
-            Carlos Enrique Herrera Pech
-            <br>
-            &
-            <br>
-            Andrea Elizabeth Borges Sanchez
-        </p>
+    <div class="dato">
+      <strong>La hora</strong>
+      <span>8:00 de la noche</span>
+    </div>
 
-        <p>
-            Agradecemos a Dios por permitirme llegar a este momento
-            tan hermoso de mi vida.
-        </p>
-    </section>
+    <div class="dato">
+      <strong>Mis padres</strong>
+      <span>
+        Carlos Enrique Herrera Pech<br>
+        y Andrea Elizabeth Borges Sanchez
+      </span>
+    </div>
 
-    <section class="section">
-        <h2>Reserva la fecha</h2>
+    <div class="dato">
+      <strong>Servicio de acción de gracias</strong>
+      <span>IGLESIA MIJEES, Plaza Dorada</span>
+      <br>
+      <a class="boton-mapa"
+         href="https://www.google.com/maps/search/?api=1&query=IGLESIA+MIJEES+Plaza+Dorada"
+         target="_blank" rel="noopener noreferrer">
+        📍 Ver ubicación
+      </a>
+    </div>
 
-        <div class="date-card">
-            <div class="eyebrow">Martes</div>
-            <div class="day">11</div>
-            <div class="month">JUNIO · 2029</div>
-            <div class="time">✧ Ceremonia y celebración ✧</div>
-            <div class="time gold">8:00 de la noche</div>
-        </div>
+    <div class="dato">
+      <strong>Recepción</strong>
+      <span>Salón Cinturón Verde</span>
+      <br>
+      <a class="boton-mapa"
+         href="https://www.google.com/maps/search/?api=1&query=Salon+Cinturon+Verde"
+         target="_blank" rel="noopener noreferrer">
+        📍 Ver ubicación
+      </a>
+    </div>
 
-        <p class="gold">Faltan para este gran día...</p>
+  </div>
 
-        <div class="countdown">
-            <div class="count-box">
-                <strong id="days">000</strong>
-                <span>Días</span>
-            </div>
+  <!-- CARRUSEL DE 8 FOTOGRAFÍAS -->
+  <h2 class="fotos-titulo">Mis momentos especiales</h2>
 
-            <div class="count-box">
-                <strong id="hours">00</strong>
-                <span>Horas</span>
-            </div>
+  <p class="mensaje">
+    Un pedacito de mi historia, compartido con amor. 💜
+  </p>
 
-            <div class="count-box">
-                <strong id="minutes">00</strong>
-                <span>Minutos</span>
-            </div>
+  <div class="carrusel">
+    <div class="foto-marco" id="fotoMarco">
 
-            <div class="count-box">
-                <strong id="seconds">00</strong>
-                <span>Segundos</span>
-            </div>
-        </div>
-    </section>
+      <img class="foto activa" src="foto1.jpg" alt="Fotografía 1 de Sheryl">
+      <img class="foto" src="foto2.jpg" alt="Fotografía 2 de Sheryl">
+      <img class="foto" src="foto3.jpg" alt="Fotografía 3 de Sheryl">
+      <img class="foto" src="foto4.jpg" alt="Fotografía 4 de Sheryl">
+      <img class="foto" src="foto5.jpg" alt="Fotografía 5 de Sheryl">
+      <img class="foto" src="foto6.jpg" alt="Fotografía 6 de Sheryl">
+      <img class="foto" src="foto7.jpg" alt="Fotografía 7 de Sheryl">
+      <img class="foto" src="foto8.jpg" alt="Fotografía 8 de Sheryl">
 
-    <section class="section">
-        <h2>¿Dónde nos vemos?</h2>
+      <div class="foto-fallback" id="fotoFallback">
+        📸 No se pudieron cargar las fotografías.<br>
+        Comprueba que sus nombres coincidan con los del código.
+      </div>
+    </div>
 
-        <p>
-            Nos encantará compartir contigo cada instante
-            de esta celebración.
-        </p>
+    <div class="controles">
+      <button class="boton-carrusel" id="anterior"
+              aria-label="Fotografía anterior">❮</button>
 
-        <div class="location-card">
-            <div class="ornament">✧</div>
-            <h3>Acción de gracias</h3>
-            <p class="gold">Iglesia MIJEES Plaza Dorada</p>
-            <a class="btn"
-               href="https://www.google.com/maps/search/?api=1&query=Iglesia+MIJEES+Plaza+Dorada"
-               target="_blank" rel="noopener">
-                VER UBICACIÓN
-            </a>
-        </div>
+      <span id="contadorFotos">1 / 8</span>
 
-        <div class="location-card">
-            <div class="ornament">✧</div>
-            <h3>Recepción</h3>
-            <p class="gold">Salón Cinturón Verde</p>
-            <a class="btn"
-               href="https://www.google.com/maps/search/?api=1&query=Salon+Cinturon+Verde"
-               target="_blank" rel="noopener">
-                VER UBICACIÓN
-            </a>
-        </div>
+      <button class="boton-carrusel" id="siguiente"
+              aria-label="Fotografía siguiente">❯</button>
+    </div>
 
-        <p style="font-size:11px;color:#d9b8f399;">
-            Las ubicaciones se abrirán en Google Maps.
-        </p>
-    </section>
+    <div class="puntos" id="puntos"></div>
+  </div>
 
-    <section class="section">
-        <div class="rsvp-box">
-            <div class="ornament">♡</div>
-            <h2>¿Nos acompañas?</h2>
+  <!-- CONFIRMACIÓN POR WHATSAPP -->
+  <section class="confirmacion">
+    <div class="decoracion">💜 ✨ 💜</div>
 
-            <p>
-                Tu presencia hará que este día sea todavía
-                más especial. Confirma tu asistencia.
-            </p>
+    <h2>¿Nos acompañas en esta noche mágica?</h2>
 
-            <a class="btn btn-primary"
-               href="https://wa.me/529993429198?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Sheryl%20Gabriela."
-               target="_blank" rel="noopener">
-                CONFIRMAR POR WHATSAPP
-            </a>
-        </div>
-    </section>
+    <p class="mensaje">
+      Nos encantará compartir contigo este momento tan especial.
+      Confirma tu asistencia por WhatsApp.
+    </p>
 
-    <footer class="footer">
-        Con todo mi cariño,
-        <br>
-        <span style="font-family:'Great Vibes',cursive;font-size:42px;">
-            Sheryl Gabriela
-        </span>
+    <a
+      class="boton-whatsapp"
+      id="botonWhatsApp"
+      href="https://wa.me/529993379848?text=Con%20gusto%20les%20acompa%C3%B1aremos%20en%20este%20evento%20especial."
+      target="_blank"
+      rel="noopener noreferrer">
+      💚 Confirmar asistencia
+    </a>
+  </section>
 
-        <small>UNA NOCHE · MIL RECUERDOS · PARA SIEMPRE</small>
-    </footer>
+  <div class="marco">
+    <div class="marco-interior">
+      <div class="decoracion">✧ 💜 ✧</div>
+
+      <p class="mensaje">
+        Tu presencia hará que esta noche sea aún más especial.
+        Gracias por formar parte de mis recuerdos y acompañarme
+        en el inicio de esta nueva etapa.
+      </p>
+
+      <div class="firma">Con cariño, Sheryl Gabriela</div>
+    </div>
+  </div>
+
+  <div class="padres">
+    Con todo nuestro amor,<br>
+    <strong>Carlos Enrique Herrera Pech</strong><br>
+    y <strong>Andrea Elizabeth Borges Sanchez</strong>
+  </div>
+
+  <div class="decoracion">✧ ❦ ✧</div>
+  <div class="pie">Una noche para recordar por siempre ✨</div>
 
 </main>
 
-<!-- MÚSICA -->
-
-<audio id="bgMusic" preload="none" loop>
-    <source src="glimpse-of-us.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicButton" class="music-button hidden"
-    aria-label="Reproducir o pausar música">♫</button>
+<button class="boton-musica" id="botonMusica">
+  🎵 Pausar música
+</button>
 
 <script>
-/* ESTRELLAS DECORATIVAS */
+/* POLVO DE HADA DORADO */
 
-const stars = document.getElementById("stars");
+const polvo = document.getElementById("polvo");
+const pctx = polvo.getContext("2d");
+const mariposasCanvas = document.getElementById("mariposas");
+const mctx = mariposasCanvas.getContext("2d");
 
-for (let i = 0; i < 45; i++) {
-    const star = document.createElement("span");
-    star.className = "star";
-    star.textContent = Math.random() > 0.5 ? "✦" : "·";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.fontSize = (Math.random() * 15 + 5) + "px";
-    star.style.animationDelay = Math.random() * 4 + "s";
-    stars.appendChild(star);
+let ancho = 0;
+let alto = 0;
+let particulas = [];
+let mariposas = [];
+let magiaActiva = false;
+
+function ajustarCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  ancho = window.innerWidth;
+  alto = window.innerHeight;
+
+  [polvo, mariposasCanvas].forEach(canvas => {
+    canvas.width = ancho * dpr;
+    canvas.height = alto * dpr;
+    canvas.style.width = ancho + "px";
+    canvas.style.height = alto + "px";
+
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  });
 }
 
-/* ABRIR INVITACIÓN Y COMENZAR MÚSICA */
+window.addEventListener("resize", ajustarCanvas);
+ajustarCanvas();
 
-const openButton = document.getElementById("openEnvelope");
-const envelope = document.getElementById("envelope");
-const opening = document.getElementById("opening");
-const invitation = document.getElementById("invitation");
-const music = document.getElementById("bgMusic");
-const musicButton = document.getElementById("musicButton");
+function nuevaParticula() {
+  return {
+    x: Math.random() * ancho,
+    y: Math.random() * alto,
+    r: Math.random() * 2.2 + 0.5,
+    velocidad: Math.random() * 0.8 + 0.25,
+    deriva: Math.random() * 0.7 - 0.35,
+    fase: Math.random() * Math.PI * 2,
+    brillo: Math.random() * 0.6 + 0.3
+  };
+}
 
-let opened = false;
+function iniciarPolvo() {
+  particulas = Array.from(
+    { length: Math.min(100, Math.floor(ancho / 5)) },
+    nuevaParticula
+  );
+}
 
-openButton.addEventListener("click", async function () {
-    if (opened) return;
-    opened = true;
+function dibujarPolvo() {
+  pctx.clearRect(0, 0, ancho, alto);
 
-    envelope.classList.add("open");
+  if (magiaActiva) {
+    particulas.forEach(p => {
+      p.y += p.velocidad;
+      p.x += p.deriva;
+      p.fase += 0.035;
 
-    /*
-      Intentamos reproducir la música inmediatamente,
-      aprovechando el toque del usuario.
-    */
-    music.volume = 0.65;
+      if (p.y > alto + 5) {
+        p.y = -5;
+        p.x = Math.random() * ancho;
+      }
 
+      if (p.x < 0) p.x = ancho;
+      if (p.x > ancho) p.x = 0;
+
+      const brillo = p.brillo *
+        (0.55 + 0.45 * Math.sin(p.fase));
+
+      pctx.beginPath();
+      pctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      pctx.fillStyle = `rgba(255, 207, 76, ${brillo})`;
+      pctx.shadowBlur = 8;
+      pctx.shadowColor = "#ffda70";
+      pctx.fill();
+    });
+  }
+
+  pctx.shadowBlur = 0;
+  requestAnimationFrame(dibujarPolvo);
+}
+
+/* MARIPOSAS MORADAS */
+
+function crearMariposa(x, y) {
+  return {
+    x, y,
+    tam: Math.random() * 10 + 9,
+    vx: Math.random() * 3 - 1.5,
+    vy: -(Math.random() * 2 + 1),
+    fase: Math.random() * 6,
+    vida: 1,
+    giro: Math.random() * 6,
+    tono: Math.random() > 0.5 ? "#9d5bd2" : "#c38bea"
+  };
+}
+
+function explosionMariposas() {
+  const rect = document.getElementById("sobre").getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+
+  for (let i = 0; i < 28; i++) {
+    mariposas.push(crearMariposa(x, y));
+  }
+}
+
+function dibujarMariposa(b) {
+  mctx.save();
+  mctx.translate(b.x, b.y);
+  mctx.rotate(Math.sin(b.giro) * 0.25);
+  mctx.globalAlpha = Math.max(0, b.vida);
+  mctx.fillStyle = b.tono;
+
+  const aleteo = Math.sin(b.fase) * 0.65 + 0.85;
+
+  mctx.beginPath();
+  mctx.ellipse(-b.tam * .45, -b.tam * .2,
+    b.tam * .42 * aleteo, b.tam * .58, -.5, 0, Math.PI * 2);
+  mctx.ellipse(b.tam * .45, -b.tam * .2,
+    b.tam * .42 * aleteo, b.tam * .58, .5, 0, Math.PI * 2);
+  mctx.ellipse(-b.tam * .35, b.tam * .3,
+    b.tam * .27 * aleteo, b.tam * .36, .5, 0, Math.PI * 2);
+  mctx.ellipse(b.tam * .35, b.tam * .3,
+    b.tam * .27 * aleteo, b.tam * .36, -.5, 0, Math.PI * 2);
+  mctx.fill();
+
+  mctx.strokeStyle = "#6c3b85";
+  mctx.lineWidth = 1;
+  mctx.beginPath();
+  mctx.moveTo(0, -b.tam * .4);
+  mctx.lineTo(0, b.tam * .6);
+  mctx.stroke();
+  mctx.restore();
+}
+
+function dibujarMariposas() {
+  mctx.clearRect(0, 0, ancho, alto);
+
+  mariposas = mariposas.filter(b => b.vida > 0);
+
+  mariposas.forEach(b => {
+    b.x += b.vx + Math.sin(b.fase) * .8;
+    b.y += b.vy;
+    b.fase += .18;
+    b.giro += .025;
+    b.vida -= .0035;
+    dibujarMariposa(b);
+  });
+
+  requestAnimationFrame(dibujarMariposas);
+}
+
+iniciarPolvo();
+dibujarPolvo();
+dibujarMariposas();
+
+/* ABRIR SOBRE Y REPRODUCIR AUDIOS */
+
+const sobre = document.getElementById("sobre");
+const inicio = document.getElementById("inicio");
+const contenido = document.getElementById("contenido");
+const sonidoSobre = document.getElementById("sonidoSobre");
+const musica = document.getElementById("musica");
+const botonMusica = document.getElementById("botonMusica");
+
+let abierto = false;
+
+async function abrirInvitacion() {
+  if (abierto) return;
+  abierto = true;
+
+  sobre.classList.add("abierto");
+  magiaActiva = true;
+  explosionMariposas();
+
+  sonidoSobre.currentTime = 0;
+  sonidoSobre.volume = 0.8;
+  sonidoSobre.play().catch(() => {});
+
+  musica.volume = 0.35;
+
+  musica.play()
+    .then(() => {
+      botonMusica.textContent = "🎵 Pausar música";
+    })
+    .catch(() => {
+      botonMusica.textContent = "🎵 Reproducir música";
+    });
+
+  botonMusica.classList.add("visible");
+
+  setTimeout(() => {
+    inicio.style.display = "none";
+    contenido.classList.add("visible");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    iniciarCarrusel();
+  }, 1100);
+}
+
+sobre.addEventListener("click", abrirInvitacion);
+
+sobre.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    abrirInvitacion();
+  }
+});
+
+botonMusica.addEventListener("click", async () => {
+  if (musica.paused) {
     try {
-        await music.play();
-        musicButton.textContent = "♫";
-    } catch (error) {
-        musicButton.textContent = "▶";
+      await musica.play();
+      botonMusica.textContent = "🎵 Pausar música";
+    } catch {
+      botonMusica.textContent = "🎵 No se pudo reproducir";
     }
-
-    setTimeout(function () {
-        opening.classList.add("hidden");
-        invitation.classList.remove("hidden");
-        musicButton.classList.remove("hidden");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 900);
+  } else {
+    musica.pause();
+    botonMusica.textContent = "🎵 Reproducir música";
+  }
 });
 
-/* CONTROL DE MÚSICA */
+/* CONTADOR REGRESIVO AL 11 DE JUNIO DE 2029, 8 P. M. */
 
-musicButton.addEventListener("click", async function () {
-    if (music.paused) {
-        try {
-            await music.play();
-            musicButton.textContent = "♫";
-        } catch (error) {
-            alert("No se pudo reproducir la música. Verifica que el archivo MP3 esté subido correctamente.");
-        }
-    } else {
-        music.pause();
-        musicButton.textContent = "▶";
-    }
-});
+const fechaEvento = new Date(2029, 5, 11, 20, 0, 0);
 
-/* CUENTA REGRESIVA */
+function actualizarCuentaRegresiva() {
+  const ahora = new Date();
+  const diferencia = fechaEvento.getTime() - ahora.getTime();
 
-const eventDate = new Date(2029, 5, 11, 20, 0, 0).getTime();
+  if (diferencia <= 0) {
+    document.getElementById("dias").textContent = "0";
+    document.getElementById("horas").textContent = "00";
+    document.getElementById("minutos").textContent = "00";
+    document.getElementById("segundos").textContent = "00";
+    return;
+  }
 
-function updateCountdown() {
-    const now = Date.now();
-    let distance = eventDate - now;
+  const dias = Math.floor(diferencia / 86400000);
+  const horas = Math.floor((diferencia % 86400000) / 3600000);
+  const minutos = Math.floor((diferencia % 3600000) / 60000);
+  const segundos = Math.floor((diferencia % 60000) / 1000);
 
-    if (distance <= 0) {
-        document.getElementById("days").textContent = "000";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    distance %= 1000 * 60 * 60 * 24;
-
-    const hours = Math.floor(distance / (1000 * 60 * 60));
-    distance %= 1000 * 60 * 60;
-
-    const minutes = Math.floor(distance / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent =
-        String(days).padStart(3, "0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+  document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
+  document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+actualizarCuentaRegresiva();
+setInterval(actualizarCuentaRegresiva, 1000);
+
+/* CARRUSEL AUTOMÁTICO DE 8 FOTOGRAFÍAS */
+
+const fotos = Array.from(document.querySelectorAll(".foto"));
+const puntosContenedor = document.getElementById("puntos");
+const contadorFotos = document.getElementById("contadorFotos");
+const fotoFallback = document.getElementById("fotoFallback");
+
+let fotoActual = 0;
+let temporizador = null;
+
+fotos.forEach((foto, i) => {
+  foto.dataset.error = "false";
+
+  const punto = document.createElement("button");
+  punto.className = "punto" + (i === 0 ? " activo" : "");
+  punto.setAttribute("aria-label", "Ver fotografía " + (i + 1));
+
+  punto.addEventListener("click", () => {
+    mostrarFoto(i);
+    reiniciarTemporizador();
+  });
+
+  puntosContenedor.appendChild(punto);
+
+  foto.addEventListener("error", () => {
+    foto.dataset.error = "true";
+    foto.style.display = "none";
+    revisarFotos();
+  });
+});
+
+function revisarFotos() {
+  const disponibles = fotos.filter(f => f.dataset.error !== "true");
+  fotoFallback.style.display = disponibles.length ? "none" : "block";
+}
+
+function mostrarFoto(indice) {
+  const disponibles = fotos
+    .map((foto, i) => ({ foto, i }))
+    .filter(item => item.foto.dataset.error !== "true");
+
+  if (!disponibles.length) {
+    revisarFotos();
+    contadorFotos.textContent = "0 / 0";
+    return;
+  }
+
+  fotoActual = (indice + fotos.length) % fotos.length;
+
+  let intentos = 0;
+  while (fotos[fotoActual].dataset.error === "true" &&
+         intentos < fotos.length) {
+    fotoActual = (fotoActual + 1) % fotos.length;
+    intentos++;
+  }
+
+  fotos.forEach((foto, i) => {
+    const activa = i === fotoActual && foto.dataset.error !== "true";
+    foto.classList.toggle("activa", activa);
+    foto.style.display = activa ? "block" : "none";
+  });
+
+  Array.from(puntosContenedor.children).forEach((punto, i) => {
+    punto.classList.toggle("activo", i === fotoActual);
+  });
+
+  const posicion = disponibles.findIndex(item => item.i === fotoActual) + 1;
+  contadorFotos.textContent = posicion + " / " + disponibles.length;
+  revisarFotos();
+}
+
+function iniciarCarrusel() {
+  mostrarFoto(0);
+  reiniciarTemporizador();
+}
+
+function reiniciarTemporizador() {
+  if (temporizador) clearInterval(temporizador);
+
+  temporizador = setInterval(() => {
+    mostrarFoto(fotoActual + 1);
+  }, 4000);
+}
+
+document.getElementById("anterior").addEventListener("click", () => {
+  mostrarFoto(fotoActual - 1);
+  reiniciarTemporizador();
+});
+
+document.getElementById("siguiente").addEventListener("click", () => {
+  mostrarFoto(fotoActual + 1);
+  reiniciarTemporizador();
+});
 </script>
 
 </body>
